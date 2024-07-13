@@ -8,7 +8,7 @@ import Info from "../icons/Info";
 export default function Hero(){
 
     return(
-        <section className="hero">
+        <section className="hero mt-4">
             <div className ="py-12">
             <h1 className="text-4xl font-semibold">The Office Hotspot <br /> for quick <br />
             <span className="text-primary">Delicious Meals</span>
