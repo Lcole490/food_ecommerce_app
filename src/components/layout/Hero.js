@@ -1,6 +1,6 @@
 
 import Image from "next/image";
-import Right from "@/components/icons/Right";
+import Right from "../../components/icons/Right";
 import Info from "../icons/Info";
 
 

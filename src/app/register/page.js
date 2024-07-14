@@ -1,7 +1,23 @@
+"use client";
+import { useState } from "react";
 
-import Image from "next/image"
+import Image from "next/image";
 
 export default function RegisterPage(){
+
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    function handleFormSubmit(ev){
+        ev.preventDefault();
+
+        fetch('/api/register', {
+            method: 'POST',
+            body: JSON.stringify({email, password}),
+            headers: {'Content-Type': 'application/json'}
+        });
+    }
 
     return(
 
@@ -11,9 +27,10 @@ export default function RegisterPage(){
             Register
         </h1>
 
-        <form className="block max-w-xs mx-auto">
-            <input type="text" placeholder="email" />
-            <input type="text" placeholder="password" />
+        <form className="block max-w-xs mx-auto" onSubmit={handleFormSubmit}>
+            <input type="text" placeholder="email"  value={email} onChange={ev => setEmail(ev.target.value)}/>
+            <input type="text" placeholder="password" value={password} onChange={ev => setPassword(ev.target.value)} />
+
             <button type="submit"> Register </button>
             
              <div className="my-4 text-center text-gray-500">
